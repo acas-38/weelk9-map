@@ -1,0 +1,174 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 900,
+  "height": 520,
+  "config": {
+    "background": "#eef3f7",
+    "view": {
+      "stroke": "transparent"
+    },
+    "legend": {
+      "titleFontSize": 12,
+      "labelFontSize": 11
+    }
+  },
+  "projection": {
+    "type": "equalEarth",
+    "center": [
+      133,
+      -28
+    ],
+    "scale": 1100
+  },
+  "title": {
+    "text": "Where Australians Live: Capital City Populations (Proportional Symbols)",
+    "subtitle": [
+      "Source: ABS (approximate metro populations). Hover for details."
+    ],
+    "fontSize": 18,
+    "anchor": "start"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "geoshape",
+        "fill": "#dde7ef"
+      },
+      "data": {
+        "sphere": true
+      }
+    },
+    {
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#c9d3db",
+        "strokeWidth": 0.8
+      },
+      "data": {
+        "graticule": {
+          "step": [
+            30,
+            30
+          ]
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "geoshape",
+        "fill": "#f3f5f7",
+        "stroke": "#b7c2ca",
+        "strokeWidth": 0.8
+      },
+      "data": {
+        "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2.5.3/data/world-110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "geoshape",
+        "fill": "transparent",
+        "stroke": "#c0cad3",
+        "strokeWidth": 0.6
+      },
+      "data": {
+        "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2.5.3/data/world-110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "au_capital_cities.csv"
+      },
+      "transform": [
+        {
+          "calculate": "datum.population / 1000000",
+          "as": "pop_millions"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "opacity": 0.85,
+        "stroke": "#2b3f50",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "population",
+          "type": "quantitative",
+          "title": "Population",
+          "scale": {
+            "domain": [
+              150000,
+              5500000
+            ],
+            "range": [
+              50,
+              2000
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "city",
+            "type": "nominal",
+            "title": "City"
+          },
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State/Territory"
+          },
+          {
+            "field": "population",
+            "type": "quantitative",
+            "title": "Population",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "au_capital_cities.csv"
+      },
+      "mark": {
+        "type": "text",
+        "dy": -8,
+        "fontSize": 11
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "city",
+          "type": "nominal"
+        },
+        "detail": {
+          "field": "city"
+        }
+      }
+    }
+  ]
+}
