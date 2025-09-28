@@ -15,10 +15,10 @@
   "projection": {
     "type": "equalEarth",
     "center": [
-      133,
+      125,
       -28
     ],
-    "scale": 800
+    "scale": 600
   },
   "title": {
     "text": "Where Australians Live: Capital City Populations (Proportional Symbols)",
