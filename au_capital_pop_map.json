@@ -15,7 +15,7 @@
  "projection": {
   "type": "equalEarth",
   "center": [133, -28],
-  "scale": 1100
+  "scale": 800
 }
 ,
   "title": {
@@ -38,7 +38,7 @@
 "projection": {
   "type": "equalEarth",
   "center": [133, -28],
-  "scale": 1100
+  "scale": 800
 }
 
     },
@@ -75,7 +75,7 @@
     "projection": {
   "type": "equalEarth",
   "center": [133, -28],
-  "scale": 1100
+  "scale": 800
 }
  }
     },
@@ -96,7 +96,7 @@
 "projection": {
   "type": "equalEarth",
   "center": [133, -28],
-  "scale": 1100
+  "scale": 800
 }
 
     },
