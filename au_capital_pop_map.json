@@ -60,14 +60,7 @@
           ]
         }
       },
-      "projection": {
-        "type": "equalEarth",
-        "rotate": [
-          -135,
-          0,
-          0
-        ]
-      }
+      "projection": { "type": "equalEarth", "rotate": [ -135, 0, 0 ]  }
     },
     {
       "mark": {
